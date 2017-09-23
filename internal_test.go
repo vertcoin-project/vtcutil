@@ -13,8 +13,8 @@ package ltcutil
 
 import (
 	"github.com/Roasbeef/ltcutil/bech32"
-	"github.com/ltcsuite/ltcd/btcec"
-	"github.com/ltcsuite/ltcutil/base58"
+	"github.com/vertcoin/vtcd/btcec"
+	"github.com/vertcoin/vtcutil/base58"
 	"golang.org/x/crypto/ripemd160"
 )
 
