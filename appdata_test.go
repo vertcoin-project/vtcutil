@@ -2,7 +2,7 @@
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
-package ltcutil_test
+package vtcutil_test
 
 import (
 	"os"
@@ -122,7 +122,7 @@ func TestAppDataDir(t *testing.T) {
 
 	t.Logf("Running %d tests", len(tests))
 	for i, test := range tests {
-		ret := ltcutil.TstAppDataDir(test.goos, test.appName, test.roaming)
+		ret := vtcutil.TstAppDataDir(test.goos, test.appName, test.roaming)
 		if ret != test.want {
 			t.Errorf("appDataDir #%d (%s) does not match - "+
 				"expected got %s, want %s", i, test.goos, ret,

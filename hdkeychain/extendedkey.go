@@ -324,7 +324,7 @@ func (k *ExtendedKey) Child(i uint32) (*ExtendedKey, error) {
 
 	// The fingerprint of the parent for the derived child is the first 4
 	// bytes of the RIPEMD160(SHA256(parentPubKey)).
-	parentFP := ltcutil.Hash160(k.pubKeyBytes())[:4]
+	parentFP := vtcutil.Hash160(k.pubKeyBytes())[:4]
 	return NewExtendedKey(k.version, childKey, childChainCode, parentFP,
 		k.depth+1, i, isPrivate), nil
 }
@@ -377,9 +377,9 @@ func (k *ExtendedKey) ECPrivKey() (*btcec.PrivateKey, error) {
 
 // Address converts the extended key to a standard litecoin pay-to-pubkey-hash
 // address for the passed network.
-func (k *ExtendedKey) Address(net *chaincfg.Params) (*ltcutil.AddressPubKeyHash, error) {
-	pkHash := ltcutil.Hash160(k.pubKeyBytes())
-	return ltcutil.NewAddressPubKeyHash(pkHash, net)
+func (k *ExtendedKey) Address(net *chaincfg.Params) (*vtcutil.AddressPubKeyHash, error) {
+	pkHash := vtcutil.Hash160(k.pubKeyBytes())
+	return vtcutil.NewAddressPubKeyHash(pkHash, net)
 }
 
 // paddedAppend appends the src byte slice to dst, returning the new slice.
